@@ -16,7 +16,6 @@ class PostsTableSeeder extends Seeder
         'title' => 'aaaa',
         'body' => 'aaaaa',
     ]);
-   
+
 }
     }
-
