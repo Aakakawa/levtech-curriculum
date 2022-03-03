@@ -9,6 +9,7 @@
     </head>
     <body>
     <h1>Blog Name</h1>
+    <button type=“button”><a href='/posts/create'>記事を作る</a></button>
          <div class = 'posts'>
               @foreach ($posts as $post)
                      <div class = 'post'>
