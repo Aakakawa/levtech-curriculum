@@ -10,21 +10,22 @@
     <body>
     <h1>Blog Name</h1>
     <button type=“button”><a href='/posts/create'>記事を作る</a></button>
-         <div class = 'posts'>
-              @foreach ($posts as $post)
-                     <div class = 'post'>
-                            <a href= '/posts/{{ $post->id }}'><h2 class = 'title'>{{ $post->title }}</h2></a>
-                            <p class = 'body'>{{ $post->body }}</p>
-                     </div>
-              @endforeach
-         </div>
-         <div class='paginate'>
+        <div class = 'posts'>
+            @foreach ($posts as $post)
+                    <div class = 'post'>
+                        <a href= '/posts/{{ $post->id }}'><h2 class = 'title'>{{ $post->title }}</h2></a>
+                        <p class = 'body'>{{ $post->body }}</p>
+                    </div>
+                     
+                    <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">delete</button> 
+                    </form>
+            @endforeach
+        </div>
+        <div class='paginate'>
               {{ $posts->links() }}
-         </div>
-         <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
-                @csrf
-                @method('DELETE')
-                <button type="submit">delete</button> 
-         </form>
+        </div>
     </body>
 </html>
